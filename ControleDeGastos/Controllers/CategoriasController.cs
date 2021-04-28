@@ -30,9 +30,14 @@ namespace ControleDeGastos.Controllers
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Categoria categoria)
         {
-            _context.Categoria.Add(categoria);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                _context.Categoria.Add(categoria);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(categoria);
         }
 
         public IActionResult Atualizar(int id)
