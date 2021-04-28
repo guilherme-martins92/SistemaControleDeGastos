@@ -40,3 +40,4 @@ C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\ControleDeGastos.genr
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\ControleDeGastos.csproj.CopyComplete
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Index.cshtml.g.cs
+C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Cadastrar.cshtml.g.cs
