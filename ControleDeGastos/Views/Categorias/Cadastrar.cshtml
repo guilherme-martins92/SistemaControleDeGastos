@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ControleDeGastos.Models.Categoria
+
+@{
     ViewData["Title"] = "Cadastrar Nova Categoria";
 }
 
@@ -7,13 +9,21 @@
 
 <div class="row">
     <div class="col-md-3">
-        <form asp-action="Cadastrar">
+        <form method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
             <div class="form-group">
                 <label for="Nome">Nome da Categoria</label>
-                <input type="text" class="form-control" id="Nome" placeholder="Digite o nome da categoria">
+                <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" placeholder="Digite o nome da categoria">
             </div>
             <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                @if (Model.Id == 0)
+                {
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                }
                 <a asp-action="Index" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
