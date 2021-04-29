@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleDeGastos.Migrations
 {
     [DbContext(typeof(ControleDeGastosContext))]
-    [Migration("20210428015427_Inicital")]
-    partial class Inicital
+    [Migration("20210429041113_REFAZBANCO")]
+    partial class REFAZBANCO
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,6 +25,7 @@ namespace ControleDeGastos.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -38,7 +39,7 @@ namespace ControleDeGastos.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("CategoriaId")
+                    b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Data")
@@ -47,11 +48,14 @@ namespace ControleDeGastos.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("text");
 
-                    b.Property<int?>("TipoContaId")
+                    b.Property<int>("TipoContaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioId")
                         .HasColumnType("int");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("double");
 
                     b.HasKey("Id");
 
@@ -71,6 +75,7 @@ namespace ControleDeGastos.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -99,15 +104,21 @@ namespace ControleDeGastos.Migrations
                 {
                     b.HasOne("ControleDeGastos.Models.Categoria", "Categoria")
                         .WithMany("contas")
-                        .HasForeignKey("CategoriaId");
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ControleDeGastos.Models.TipoConta", "TipoConta")
                         .WithMany("contas")
-                        .HasForeignKey("TipoContaId");
+                        .HasForeignKey("TipoContaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ControleDeGastos.Models.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId");
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Categoria");
 

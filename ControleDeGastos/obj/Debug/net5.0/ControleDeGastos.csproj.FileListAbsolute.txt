@@ -160,3 +160,5 @@ C:\temp\ControleDeGastos\ControleDeGastos\bin\Debug\net5.0\MySql.EntityFramework
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Excluir.cshtml.g.cs
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\TipoContas\Cadastrar.cshtml.g.cs
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\TipoContas\Excluir.cshtml.g.cs
+C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Index.cshtml.g.cs
+C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Cadastrar.cshtml.g.cs

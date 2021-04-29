@@ -1,0 +1,44 @@
+﻿@model ControleDeGastos.Models.ViewModels.ContaFormViewModel
+
+@{
+    ViewData["Title"] = "Cadastrar Nova Conta";
+}
+
+<p></p>
+<h4>@ViewData["Title"]</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cadastrar">
+            <div class="form-group col-md-8">
+                <label asp-for="Conta.Data" class="control-label"></label>
+                <input asp-for="Conta.Data" class="form-control" />
+                <span asp-validation-for="@Model.Conta.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="tipoConta">Tipo de Conta</label>
+                <select asp-for="Conta.TipoContaId" class="form-control" asp-items="@(new SelectList((Model.TipoContas),"Id","Nome"))"></select>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="categoria">Categoria</label>
+                <select asp-for="Conta.CategoriaId" class="form-control" asp-items="@(new SelectList((Model.Categorias),"Id","Nome"))"></select>
+            </div>
+            <div class="form-group col-md-12">
+                <label asp-for="Conta.Descricao" class="control-label"></label>
+                <input asp-for="Conta.Descricao" class="form-control" placeholder="Insira uma descrição" />
+            </div>
+            <div class="form-group col-md-12">
+                <label asp-for="Conta.Valor" class="control-label"></label>
+                <input asp-for="Conta.Valor" type="text" class="form-control" placeholder="Digite o valor" />
+            </div>
+            <div class="form-group col-md-12">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

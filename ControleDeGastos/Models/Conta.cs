@@ -11,7 +11,11 @@ namespace ControleDeGastos.Models
         public DateTime Data { get; set; }
         public string Descricao { get; set; }
         public Usuario Usuario { get; set; }
+        public int UsuarioId { get; set; }
         public Categoria Categoria { get; set; }
+        public int CategoriaId { get; set; }
         public TipoConta TipoConta { get; set; }
+        public int TipoContaId { get; set; }
+        public  double Valor { get; set; }
     }
 }
