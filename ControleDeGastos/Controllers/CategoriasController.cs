@@ -40,9 +40,19 @@ namespace ControleDeGastos.Controllers
             return View(categoria);
         }
 
-        public IActionResult Atualizar(int id)
+        public IActionResult Atualizar(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
             Categoria categoria = _context.Categoria.Find(id);
+
+            if (categoria == null)
+            {
+                return NotFound();
+            }
 
             return View("Cadastrar", categoria);
         }

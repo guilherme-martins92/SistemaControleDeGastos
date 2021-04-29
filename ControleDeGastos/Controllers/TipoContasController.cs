@@ -19,134 +19,99 @@ namespace ControleDeGastos.Controllers
         }
 
         // GET: TipoContas
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.TipoConta.ToListAsync());
+            var list = _context.TipoConta.ToList();
+            return View(list);
         }
 
-        // GET: TipoContas/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: TipoContas/Cadastrar
+        public IActionResult Cadastrar()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var tipoConta = await _context.TipoConta
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (tipoConta == null)
-            {
-                return NotFound();
-            }
-
+            TipoConta tipoConta = new TipoConta();
             return View(tipoConta);
         }
 
-        // GET: TipoContas/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: TipoContas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] TipoConta tipoConta)
+        public IActionResult Cadastrar([FromForm] TipoConta tipoConta)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tipoConta);
-                await _context.SaveChangesAsync();
+                _context.TipoConta.Update(tipoConta);
+                _context.SaveChanges();
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(tipoConta);
         }
 
         // GET: TipoContas/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Atualizar(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var tipoConta = await _context.TipoConta.FindAsync(id);
+            TipoConta tipoConta = _context.TipoConta.Find(id);
+
             if (tipoConta == null)
             {
                 return NotFound();
             }
-            return View(tipoConta);
+
+            return View("Cadastrar", tipoConta);
         }
 
-        // POST: TipoContas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] TipoConta tipoConta)
+        public IActionResult Atualizar([FromForm] TipoConta tipoConta)
         {
-            if (id != tipoConta.Id)
+            if (tipoConta == null)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(tipoConta);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TipoContaExists(tipoConta.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Update(tipoConta);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(tipoConta);
         }
 
         // GET: TipoContas/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+
+        public IActionResult Excluir(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var tipoConta = await _context.TipoConta
-                .FirstOrDefaultAsync(m => m.Id == id);
+            TipoConta tipoConta = _context.TipoConta.Find(id);
+
             if (tipoConta == null)
             {
                 return NotFound();
             }
 
-            return View(tipoConta);
+            return View("Excluir", tipoConta);
         }
 
-        // POST: TipoContas/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public IActionResult Excluir([FromForm] TipoConta tipoConta)
         {
-            var tipoConta = await _context.TipoConta.FindAsync(id);
+            if (tipoConta == null)
+            {
+                return NotFound();
+            }
+
             _context.TipoConta.Remove(tipoConta);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            _context.SaveChanges();
 
-        private bool TipoContaExists(int id)
-        {
-            return _context.TipoConta.Any(e => e.Id == id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
