@@ -44,5 +44,36 @@ namespace ControleDeGastos.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult Atualizar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Conta conta = _context.Conta.Find(id);
+
+            if (conta == null)
+            {
+                return NotFound();
+            }
+
+            var categorias = _context.Categoria.ToList();
+            var tipoContas = _context.TipoConta.ToList();
+            var viewModel = new ContaFormViewModel { Conta = conta, Categorias = categorias, TipoContas = tipoContas };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Atualizar([FromForm] Conta conta)
+        {
+            _context.Conta.Update(conta);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
