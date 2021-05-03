@@ -163,3 +163,4 @@ C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\TipoConta
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Index.cshtml.g.cs
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Cadastrar.cshtml.g.cs
 C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Atualizar.cshtml.g.cs
+C:\temp\ControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Delete.cshtml.g.cs

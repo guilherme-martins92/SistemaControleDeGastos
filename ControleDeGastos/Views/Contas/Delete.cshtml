@@ -1,0 +1,51 @@
+﻿@model ControleDeGastos.Models.ViewModels.ContaFormViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>View</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Conta</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Conta.Data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Conta.Data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Conta.Descricao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Conta.Descricao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Conta.Categoria)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Conta.Categoria.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Conta.TipoConta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Conta.TipoConta.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Conta.Valor)
+        </dt>
+        <dd class="col-sm-10">
+            <b>R$ @Html.DisplayFor(model => model.Conta.Valor)</b>
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Conta.Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+    </form>
+</div>

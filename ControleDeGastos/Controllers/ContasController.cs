@@ -23,7 +23,10 @@ namespace ControleDeGastos.Controllers
             var list = _context.Conta
                 .Include("Categoria")
                 .Include("TipoConta")
-                .Include("Usuario").ToList();
+                .Include("Usuario")
+                .OrderBy(x => x.Data)
+                .OrderBy(x => x.TipoContaId)
+                .ToList();
 
             return View(list);
         }
@@ -37,9 +40,9 @@ namespace ControleDeGastos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar([FromForm] Conta conta)
+        public IActionResult Cadastrar(Conta conta)
         {
-            conta.UsuarioId = 1;
+            conta.UsuarioId = 2;
             _context.Conta.Add(conta);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
@@ -71,6 +74,36 @@ namespace ControleDeGastos.Controllers
         public IActionResult Atualizar([FromForm] Conta conta)
         {
             _context.Conta.Update(conta);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Conta conta = _context.Conta.Find(id);
+
+            if (conta == null)
+            {
+                return NotFound();
+            }
+
+            var categorias = _context.Categoria.ToList();
+            var tipoContas = _context.TipoConta.ToList();
+            var viewModel = new ContaFormViewModel { Conta = conta, Categorias = categorias, TipoContas = tipoContas };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Delete([FromForm] Conta conta)
+        {
+            _context.Conta.Remove(conta);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));

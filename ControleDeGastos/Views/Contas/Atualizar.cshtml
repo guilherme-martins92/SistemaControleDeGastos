@@ -36,7 +36,6 @@
             <div class="form-group">
                 <label asp-for="Conta.Valor" class="control-label"></label>
                 <input asp-for="Conta.Valor" class="form-control" />
-                <span asp-validation-for="Conta.Valor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
@@ -50,6 +49,4 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
