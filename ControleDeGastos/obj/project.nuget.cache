@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fyjpA4e3NlPDiT6DJfJqFjQgL/y7UaF4zGyCBT7bWFJ4LZ2TghKn9LCPD0XJwdVgqU+/2ZncyX/zQ9aEfvlLkQ==",
+  "dgSpecHash": "3ZvMBUalhiYBsWVRxmMtTuqHO5iN2G3otCrUPfZyJPEzMDD/NkdoUTKYCgfvDyJaXSAg+IJAx5dDSSIXoxjlGg==",
   "success": true,
-  "projectFilePath": "C:\\temp\\ControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj",
+  "projectFilePath": "C:\\temp\\ControleDeGastos\\SistemaControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marti\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\marti\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

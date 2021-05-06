@@ -26,14 +26,14 @@ namespace ControleDeGastos.Controllers
         }
 
         // GET: TipoContas/Cadastrar
-        public IActionResult Cadastrar()
+        public IActionResult Create()
         {
             TipoConta tipoConta = new TipoConta();
             return View(tipoConta);
         }
 
         [HttpPost]
-        public IActionResult Cadastrar([FromForm] TipoConta tipoConta)
+        public IActionResult Create([FromForm] TipoConta tipoConta)
         {
             if (ModelState.IsValid)
             {
@@ -47,7 +47,7 @@ namespace ControleDeGastos.Controllers
         }
 
         // GET: TipoContas/Edit/5
-        public IActionResult Atualizar(int? id)
+        public IActionResult Update(int? id)
         {
             if (id == null)
             {
@@ -61,11 +61,11 @@ namespace ControleDeGastos.Controllers
                 return NotFound();
             }
 
-            return View("Cadastrar", tipoConta);
+            return View("Create", tipoConta);
         }
 
         [HttpPost]
-        public IActionResult Atualizar([FromForm] TipoConta tipoConta)
+        public IActionResult Update([FromForm] TipoConta tipoConta)
         {
             if (tipoConta == null)
             {
@@ -83,7 +83,7 @@ namespace ControleDeGastos.Controllers
 
         // GET: TipoContas/Delete/5
 
-        public IActionResult Excluir(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -97,11 +97,11 @@ namespace ControleDeGastos.Controllers
                 return NotFound();
             }
 
-            return View("Excluir", tipoConta);
+            return View("Delete", tipoConta);
         }
 
         [HttpPost]
-        public IActionResult Excluir([FromForm] TipoConta tipoConta)
+        public IActionResult Delete([FromForm] TipoConta tipoConta)
         {
             if (tipoConta == null)
             {

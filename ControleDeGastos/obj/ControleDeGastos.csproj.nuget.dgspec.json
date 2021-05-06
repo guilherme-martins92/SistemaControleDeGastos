@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\temp\\ControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj": {}
+    "C:\\temp\\ControleDeGastos\\SistemaControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj": {}
   },
   "projects": {
-    "C:\\temp\\ControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj": {
+    "C:\\temp\\ControleDeGastos\\SistemaControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\temp\\ControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj",
+        "projectUniqueName": "C:\\temp\\ControleDeGastos\\SistemaControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj",
         "projectName": "ControleDeGastos",
-        "projectPath": "C:\\temp\\ControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj",
+        "projectPath": "C:\\temp\\ControleDeGastos\\SistemaControleDeGastos\\ControleDeGastos\\ControleDeGastos.csproj",
         "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\temp\\ControleDeGastos\\ControleDeGastos\\obj\\",
+        "outputPath": "C:\\temp\\ControleDeGastos\\SistemaControleDeGastos\\ControleDeGastos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
