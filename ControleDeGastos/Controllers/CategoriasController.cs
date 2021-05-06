@@ -16,19 +16,22 @@ namespace ControleDeGastos.Controllers
             _context = context;
         }
 
+        // Chama a página Index do TipoConta e lista todos as categorias cadastradas.
         public IActionResult Index()
         {
             var list = _context.Categoria.ToList();
             return View(list);
         }
 
-        public IActionResult Cadastrar()
+        // Chama a página de cadastro de categoria.
+        public IActionResult Create()
         {
             return View(new Categoria());
         }
 
+        //Envia os dados do formulário de cadastro p/ a base de dados.
         [HttpPost]
-        public IActionResult Cadastrar([FromForm] Categoria categoria)
+        public IActionResult Create([FromForm] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
@@ -40,7 +43,8 @@ namespace ControleDeGastos.Controllers
             return View(categoria);
         }
 
-        public IActionResult Atualizar(int? id)
+        // Chama a tela de update informando o id do item que deverá ser alterado.
+        public IActionResult Update(int? id)
         {
             if (id == null)
             {
@@ -54,11 +58,12 @@ namespace ControleDeGastos.Controllers
                 return NotFound();
             }
 
-            return View("Cadastrar", categoria);
+            return View("Create", categoria);
         }
 
+        //Envia os dados do formulário de update p/ a base de dados.
         [HttpPost]
-        public IActionResult Atualizar([FromForm] Categoria categoria)
+        public IActionResult Update([FromForm] Categoria categoria)
         {
             _context.Categoria.Update(categoria);
             _context.SaveChanges();
@@ -66,15 +71,17 @@ namespace ControleDeGastos.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Excluir(int id)
+        // Chama a tela de delete informando o id do item que deverá ser deletado.
+        public IActionResult Delete(int id)
         {
             Categoria categoria = _context.Categoria.Find(id);
 
-            return View("Excluir", categoria);
+            return View("Delete", categoria);
         }
 
+        //Envia os dados do formulário de delete p/ base de dados.
         [HttpPost]
-        public IActionResult Excluir([FromForm] Categoria categoria)
+        public IActionResult Delete([FromForm] Categoria categoria)
         {
             _context.Categoria.Remove(categoria);
             _context.SaveChanges();

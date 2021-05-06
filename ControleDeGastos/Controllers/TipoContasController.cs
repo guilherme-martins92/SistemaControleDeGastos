@@ -18,26 +18,27 @@ namespace ControleDeGastos.Controllers
             _context = context;
         }
 
-        // GET: TipoContas
+        // Chama a página Index do TipoConta e lista todos os TipoConta cadastrados.
         public IActionResult Index()
         {
             var list = _context.TipoConta.ToList();
             return View(list);
         }
 
-        // GET: TipoContas/Cadastrar
+        // Chama a página de cadastro do TipoContas.
         public IActionResult Create()
         {
             TipoConta tipoConta = new TipoConta();
             return View(tipoConta);
         }
 
+        //Envia os dados do formulário de cadastro p/ a base de dados.
         [HttpPost]
         public IActionResult Create([FromForm] TipoConta tipoConta)
         {
             if (ModelState.IsValid)
             {
-                _context.TipoConta.Update(tipoConta);
+                _context.TipoConta.Add(tipoConta);
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
@@ -46,7 +47,7 @@ namespace ControleDeGastos.Controllers
             return View(tipoConta);
         }
 
-        // GET: TipoContas/Edit/5
+        // Chama a tela de update informando o id do item que deverá ser alterado.
         public IActionResult Update(int? id)
         {
             if (id == null)
@@ -64,6 +65,7 @@ namespace ControleDeGastos.Controllers
             return View("Create", tipoConta);
         }
 
+        //Envia os dados do formulário de update p/ a base de dados.
         [HttpPost]
         public IActionResult Update([FromForm] TipoConta tipoConta)
         {
@@ -81,8 +83,7 @@ namespace ControleDeGastos.Controllers
             return View(tipoConta);
         }
 
-        // GET: TipoContas/Delete/5
-
+        // Chama a tela de delete informando o id do item que deverá ser deletado.
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -100,6 +101,7 @@ namespace ControleDeGastos.Controllers
             return View("Delete", tipoConta);
         }
 
+        //Envia os dados do formulário de delete p/ base de dados.
         [HttpPost]
         public IActionResult Delete([FromForm] TipoConta tipoConta)
         {

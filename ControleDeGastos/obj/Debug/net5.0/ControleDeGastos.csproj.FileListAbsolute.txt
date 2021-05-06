@@ -304,8 +304,6 @@ C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\ControleDeGastos.TagHelpers.input.cache
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\ControleDeGastos.TagHelpers.output.cache
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\ControleDeGastos.RazorCoreGenerate.cache
-C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Cadastrar.cshtml.g.cs
-C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Excluir.cshtml.g.cs
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Index.cshtml.g.cs
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Atualizar.cshtml.g.cs
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Contas\Cadastrar.cshtml.g.cs
@@ -330,3 +328,5 @@ C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\ControleDeGastos.genruntimeconfig.cache
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\TipoContas\Create.cshtml.g.cs
 C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\TipoContas\Delete.cshtml.g.cs
+C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Create.cshtml.g.cs
+C:\temp\ControleDeGastos\SistemaControleDeGastos\ControleDeGastos\obj\Debug\net5.0\Razor\Views\Categorias\Delete.cshtml.g.cs

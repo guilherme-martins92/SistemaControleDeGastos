@@ -4,35 +4,38 @@
     ViewData["Title"] = "Categorias";
 }
 
+<br />
+<h2>@ViewData["Title"]</h2>
 
-<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-6">
+        <table class="table table-hover">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Ação</th>
 
-<table class="table table-hover">
-    <thead>
-        <tr class="table-primary">
-            <th scope="col">ID</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Ação</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
 
 
-                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
-                <td>
-                    <a asp-action="Atualizar" asp-route-id="@item.Id">Editar</a>
-                    <a asp-action="Excluir" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<p>
-    <a class="btn btn-primary" asp-action="Cadastrar">Cadastrar</a>
-</p>
-
+                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td>
+                            <a asp-action="Update" asp-route-id="@item.Id">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            <a class="btn btn-primary" asp-action="Create">Cadastrar</a>
+        </p>
+    </div>
+</div>
