@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ControleDeGastos.Models.Conta>
 
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Contas";
 }
 
 <br />
@@ -77,20 +77,14 @@
                     @Html.DisplayFor(modelItem => item.Valor)
                 </td>
                 <td>
-                    <a asp-action="Atualizar" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Update" asp-route-id="@item.Id">Editar</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
                 </td>
             </tr>
         }
     </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="8">
-            </td>
-        </tr>
-    </tfoot>
 </table>
 
 <p>
-    <a asp-action="Cadastrar" class="btn btn-primary">Cadastrar</a>
+    <a asp-action="Create" class="btn btn-primary">Cadastrar</a>
 </p>

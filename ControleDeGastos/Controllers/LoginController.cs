@@ -22,7 +22,7 @@ namespace ControleDeGastos.Controllers
             return View();
         }
 
-
+        // Recebe as informações do formulário de login.
         [HttpPost]
         public IActionResult Login([FromForm] Usuario usuario)
         {
@@ -33,6 +33,7 @@ namespace ControleDeGastos.Controllers
 
                 if (login.Count() != 0)
                 {
+                    // Inseri os dados do usuário na session.
                     HttpContext.Session.SetString("_Nome", usuario.Nome);
                     HttpContext.Session.SetInt32("_Id", usuario.Id);
 

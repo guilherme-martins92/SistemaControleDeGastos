@@ -1,5 +1,6 @@
 ﻿using ControleDeGastos.Models;
 using ControleDeGastos.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,8 +21,10 @@ namespace ControleDeGastos.Controllers
 
         public IActionResult Index()
         {
+            // Atribui o mes vigente para o ViewData "Mês" que é usada na tela de listagem de contas.
             ViewData["Mes"] = DateTime.Now.ToString("MMMM");
 
+            //Busca as contas do mês vigente.
             var query = _context.Conta
                 .Include("Usuario")
                 .Include("Categoria")
@@ -33,7 +36,7 @@ namespace ControleDeGastos.Controllers
             return View(query);
         }
 
-        public IActionResult Cadastrar()
+        public IActionResult Create()
         {
             var categorias = _context.Categoria.ToList();
             var tipoContas = _context.TipoConta.ToList();
@@ -42,16 +45,17 @@ namespace ControleDeGastos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(Conta conta)
+        public IActionResult Create(Conta conta)
         {
-            conta.UsuarioId = 2;
+            var idUsuario = HttpContext.Session.GetInt32("_Id");
+            conta.UsuarioId = (int)idUsuario;
             _context.Conta.Add(conta);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
-        public IActionResult Atualizar(int? id)
+        public IActionResult Update(int? id)
         {
             if (id == null)
             {
@@ -73,7 +77,7 @@ namespace ControleDeGastos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Atualizar([FromForm] Conta conta)
+        public IActionResult Update([FromForm] Conta conta)
         {
             _context.Conta.Update(conta);
             _context.SaveChanges();
@@ -113,6 +117,7 @@ namespace ControleDeGastos.Controllers
 
         public IActionResult ContasPorMes(DateTime? data)
         {
+            //Filtra as contas pelo mês informado.
             var query = _context.Conta
                 .Include("Usuario")
                 .Include("Categoria")
@@ -121,6 +126,7 @@ namespace ControleDeGastos.Controllers
                 .OrderBy(c => c.Data)
                 .OrderBy(c => c.TipoContaId);
 
+            // Atualiza o mês informados na ViewData "Mês".
             ViewData["Mes"] = data.Value.ToString("MMMM");
             return View("Index", query);
         }
