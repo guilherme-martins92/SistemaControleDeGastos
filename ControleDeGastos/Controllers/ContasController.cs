@@ -20,20 +20,17 @@ namespace ControleDeGastos.Controllers
 
         public IActionResult Index()
         {
-            var month = DateTime.Now.Month;
-            var query = _context.Conta.ToList().Where(c => c.Data.Month == month);
+            ViewData["Mes"] = DateTime.Now.ToString("MMMM");
 
-            
-            var list = _context.Conta
-                .Include("Categoria")
-                .Include("TipoConta")
+            var query = _context.Conta
                 .Include("Usuario")
-                .OrderBy(x => x.Data).ToList();
-                //.OrderBy(x => x.TipoContaId).ToList()
+                .Include("Categoria")
+                .Include("TipoConta").ToList()
+                .Where(c => c.Data.Month == DateTime.Now.Month && c.Data.Year == DateTime.Now.Year)
+                .OrderBy(c => c.Data)
+                .OrderBy(c => c.TipoContaId);
 
             return View(query);
-
-
         }
 
         public IActionResult Cadastrar()
@@ -112,6 +109,20 @@ namespace ControleDeGastos.Controllers
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult ContasPorMes(DateTime? data)
+        {
+            var query = _context.Conta
+                .Include("Usuario")
+                .Include("Categoria")
+                .Include("TipoConta").ToList()
+                .Where(c => c.Data.Month == data.Value.Month && c.Data.Year == data.Value.Year)
+                .OrderBy(c => c.Data)
+                .OrderBy(c => c.TipoContaId);
+
+            ViewData["Mes"] = data.Value.ToString("MMMM");
+            return View("Index", query);
         }
     }
 }
