@@ -2,11 +2,13 @@
 
 @{
     ViewData["Title"] = "View";
+    ViewData["Mes"] = DateTime.Now.ToString("MMMM");
 }
 
-<p></p>
-<h3>Contas do mês de Abril</h3>
-
+<br />
+<h3>Contas do mês de @ViewData["Mes"]</h3>
+<br />
+<p><span style="font-size: 18px"><b>Total: @Model.Sum(obj => obj.Valor).ToString("C2")</b></span></p>
 <table class="table table-hover">
     <thead>
         <tr class="table-primary">
@@ -23,7 +25,7 @@
                 Descrição
             </th>
             <th>
-               Morador
+                Morador
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Valor)
@@ -65,7 +67,6 @@
     <tfoot>
         <tr>
             <td colspan="8">
-                <p><span style="font-size: 18px"><b>Total: @Model.Sum(obj => obj.Valor).ToString("C2")</b></span></p>
             </td>
         </tr>
     </tfoot>

@@ -1,5 +1,6 @@
 ﻿using ControleDeGastos.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,14 +14,24 @@ namespace ControleDeGastos.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ControleDeGastosContext _context;
+
+        public HomeController(ILogger<HomeController> logger, ControleDeGastosContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+
+            var result = from obj in _context.Conta select obj;
+            result = result.Where(x => x.Valor != 0);
+            result
+                .Include(x => x.Usuario)
+                .GroupBy(x => x.UsuarioId);
+
+            return View(result);
         }
 
         public IActionResult Privacy()

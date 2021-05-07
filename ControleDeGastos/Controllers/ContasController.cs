@@ -20,15 +20,20 @@ namespace ControleDeGastos.Controllers
 
         public IActionResult Index()
         {
+            var month = DateTime.Now.Month;
+            var query = _context.Conta.ToList().Where(c => c.Data.Month == month);
+
+            
             var list = _context.Conta
                 .Include("Categoria")
                 .Include("TipoConta")
                 .Include("Usuario")
-                .OrderBy(x => x.Data)
-                .OrderBy(x => x.TipoContaId)
-                .ToList();
+                .OrderBy(x => x.Data).ToList();
+                //.OrderBy(x => x.TipoContaId).ToList()
 
-            return View(list);
+            return View(query);
+
+
         }
 
         public IActionResult Cadastrar()
