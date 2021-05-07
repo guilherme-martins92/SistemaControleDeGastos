@@ -27,11 +27,12 @@ namespace ControleDeGastos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddSession();
 
             services.AddDbContext<ControleDeGastosContext>(options =>
            options.UseMySQL(Configuration.GetConnectionString("ControleDeGastosContext"), builder =>
            builder.MigrationsAssembly("ControleDeGastos")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +60,7 @@ namespace ControleDeGastos
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession(); // --> Habilita o uso de seção.
 
             app.UseRouting();
 
@@ -68,7 +70,7 @@ namespace ControleDeGastos
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Contas}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }
