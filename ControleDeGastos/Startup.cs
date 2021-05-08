@@ -31,7 +31,7 @@ namespace ControleDeGastos
 
             services.AddDbContext<ControleDeGastosContext>(options =>
             //options.UseMySQL(Configuration.GetConnectionString("ControleDeGastosContext"), builder => builder.MigrationsAssembly("ControleDeGastos")));
-            options.UseSqlite("Data source=Data//controledegastosdb.db"));
+            options.UseSqlite("Data source=Data\\controledegastosdb.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,8 +50,6 @@ namespace ControleDeGastos
             // app.UseDeveloperExceptionPage();
             // app.UseMigrationsEndPoint();
 
-
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession(); // --> Habilita o uso de seção.
@@ -59,9 +57,7 @@ namespace ControleDeGastos
             app.UseRouting();
 
             app.UseAuthorization();
-
-            app.UseDeveloperExceptionPage();
-            /*
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -72,7 +68,7 @@ namespace ControleDeGastos
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            */
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

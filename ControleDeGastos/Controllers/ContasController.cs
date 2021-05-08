@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeGastos.Controllers
 {
+
     public class ContasController : Controller
     {
         private readonly ControleDeGastosContext _context;

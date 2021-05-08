@@ -24,17 +24,19 @@ namespace ControleDeGastos.Controllers
 
         // Recebe as informações do formulário de login.
         [HttpPost]
-        [ValidateAntiForgeryToken]       
+        [ValidateAntiForgeryToken]
         public IActionResult Login([FromForm] Usuario usuario)
         {
+
             if (ModelState.IsValid)
             {
                 var login = _context.Usuario.Where(u => u.Nome == usuario.Nome && u.Senha == usuario.Senha).ToList();
-                usuario = (Usuario)login.First();
+
 
                 if (login.Count() != 0)
                 {
                     // Inseri os dados do usuário na session.
+                    usuario = (Usuario)login.First();
                     HttpContext.Session.SetString("_Nome", usuario.Nome);
                     HttpContext.Session.SetInt32("_Id", usuario.Id);
 
@@ -42,7 +44,7 @@ namespace ControleDeGastos.Controllers
                 }
                 else
                 {
-                    ViewData["LoginMessage"] = "Usuário não encontrado";
+                    ViewData["loginMessage"] = "Usuário não encontrado.";
                 }
             }
 
