@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="ControleDeGastos20210508133456" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\temp\\ControleDeGastos\\SistemaControleDeGastos\\ControleDeGastos\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

@@ -24,6 +24,7 @@ namespace ControleDeGastos.Controllers
 
         // Recebe as informações do formulário de login.
         [HttpPost]
+        [ValidateAntiForgeryToken]       
         public IActionResult Login([FromForm] Usuario usuario)
         {
             if (ModelState.IsValid)
