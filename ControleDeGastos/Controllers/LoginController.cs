@@ -44,7 +44,7 @@ namespace ControleDeGastos.Controllers
                 }
                 else
                 {
-                    ViewData["loginMessage"] = "Usuário não encontrado.";
+                    TempData["MensagemErroLogin"] = "Usuário não encontrado.";
                 }
             }
 

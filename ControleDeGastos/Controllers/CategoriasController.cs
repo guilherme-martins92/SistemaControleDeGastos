@@ -1,4 +1,5 @@
-﻿using ControleDeGastos.Models;
+﻿using ControleDeGastos.Library.Validation;
+using ControleDeGastos.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeGastos.Controllers
 {
+    [Login]
     public class CategoriasController : Controller
     {
         private readonly ControleDeGastosContext _context;

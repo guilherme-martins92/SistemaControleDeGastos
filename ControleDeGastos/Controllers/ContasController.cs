@@ -1,4 +1,5 @@
-﻿using ControleDeGastos.Models;
+﻿using ControleDeGastos.Library.Validation;
+using ControleDeGastos.Models;
 using ControleDeGastos.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeGastos.Controllers
 {
-
+    [Login]
     public class ContasController : Controller
     {
         private readonly ControleDeGastosContext _context;
