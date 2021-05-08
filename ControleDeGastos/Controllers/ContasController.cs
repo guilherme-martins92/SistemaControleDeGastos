@@ -32,6 +32,7 @@ namespace ControleDeGastos.Controllers
                 .Where(c => c.Data.Month == DateTime.Now.Month && c.Data.Year == DateTime.Now.Year)
                 .OrderBy(c => c.Data)
                 .OrderBy(c => c.TipoContaId);
+           
 
             return View(query);
         }

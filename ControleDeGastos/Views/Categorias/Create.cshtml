@@ -1,12 +1,19 @@
 ﻿@model ControleDeGastos.Models.Categoria
 
 @{
-    ViewData["Title"] = "Cadastrar Nova Categoria";
+    if (Model.Id == 0)
+    {
+        ViewData["Title"] = "Cadastrar Nova Categoria";
+    }
+    else
+    {
+        ViewData["Title"] = "Editar Categoria";
+    }
 }
 
-
-<h1>@ViewData["Title"]</h1>
-
+<br />
+<h4>@ViewData["Title"]</h4>
+<hr />
 <div class="row">
     <div class="col-md-3">
         <form method="post">

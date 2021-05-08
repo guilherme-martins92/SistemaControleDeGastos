@@ -5,28 +5,22 @@
 }
 
 <br />
-<h3>Contas do mês de @ViewData["Mes"]</h3>
+<h2>Contas do mês de @ViewData["Mes"]</h2>
 <br />
-<div class="row">
-    <div class="col-md-3">
-        <form class="form-horizontal" asp-action="ContasPorMes">
-            <fieldset>
-                <legend>Filtros</legend>
-                <div class="form-group">
-                    <label for="data" class="col-lg-2 control-label">Mês</label>
-                    <div class="col-lg-10">
-                        <input type="month" name="data" class="form-control" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" class="btn btn-primary">Buscar</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
+
+
+<form asp-action="ContasPorMes">
+    <div class="row">
+        <div class="col-12"><p>Filtrar por mês</p></div>
+        <div class="col-3">
+            <input type="month" name="data" class="form-control"/>
+        </div>
+        <div class="col-3">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
     </div>
-</div>
+</form>
+<br />
 <p><span style="font-size: 18px"><b>Total: @Model.Sum(obj => obj.Valor).ToString("C2")</b></span></p>
 <table class="table table-hover">
     <thead>

@@ -4,9 +4,9 @@
     ViewData["Title"] = "Editar";
 }
 
-<h1>Editar</h1>
 
-<h4>Conta</h4>
+<br />
+<h4>Editar Conta</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -21,21 +21,24 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Conta.TipoContaId" class="control-label"></label>
+                <label asp-for="Conta.TipoContaId" class="control-label">Tipo de Conta</label>
                 <select asp-for="Conta.TipoContaId" class="form-control" asp-items="@(new SelectList(Model.TipoContas,"Id","Nome"))"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Conta.CategoriaId" class="control-label"></label>
+                <label asp-for="Conta.CategoriaId" class="control-label">Categoria</label>
                 <select asp-for="Conta.CategoriaId" class="form-control" asp-items="@(new SelectList(Model.Categorias,"Id","Nome"))"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Conta.Descricao" class="control-label"></label>
+                <label asp-for="Conta.Descricao" class="control-label">Descrição</label>
                 <input asp-for="Conta.Descricao" class="form-control" />
                 <span asp-validation-for="Conta.Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Conta.Valor" class="control-label"></label>
-                <input asp-for="Conta.Valor" class="form-control" />
+                <div class="input-group mb-3">
+                    <span class="input-group-text">R$</span>
+                    <input asp-for="Conta.Valor" type="text" class="form-control" />
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
@@ -45,8 +48,5 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 

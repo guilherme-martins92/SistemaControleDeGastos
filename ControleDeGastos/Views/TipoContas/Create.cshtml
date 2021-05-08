@@ -1,12 +1,18 @@
 ﻿@model ControleDeGastos.Models.TipoConta
 
 @{
-    ViewData["Title"] = "Cadastrar";
+    if (Model.Id == 0)
+    {
+        ViewData["Title"] = "Cadastrar Novo Tipo de Conta";
+    }
+    else
+    {
+        ViewData["Title"] = "Editar Tipo de Conta";
+    }
 }
 
-<h1>Create</h1>
-
-<h4>TipoConta</h4>
+<br />
+<h4>@ViewData["Title"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
