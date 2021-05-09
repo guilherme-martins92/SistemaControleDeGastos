@@ -33,6 +33,7 @@ namespace ControleDeGastos.Controllers
 
         //Envia os dados do formulário de cadastro p/ a base de dados.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create([FromForm] Categoria categoria)
         {
             if (ModelState.IsValid)
@@ -65,6 +66,7 @@ namespace ControleDeGastos.Controllers
 
         //Envia os dados do formulário de update p/ a base de dados.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update([FromForm] Categoria categoria)
         {
             _context.Categoria.Update(categoria);
@@ -83,6 +85,7 @@ namespace ControleDeGastos.Controllers
 
         //Envia os dados do formulário de delete p/ base de dados.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete([FromForm] Categoria categoria)
         {
             _context.Categoria.Remove(categoria);

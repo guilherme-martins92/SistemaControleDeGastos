@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ControleDeGastos.Models;
+using ControleDeGastos.Library.Validation;
 
 namespace ControleDeGastos.Controllers
 {
+    [Login]
     public class TipoContasController : Controller
     {
         private readonly ControleDeGastosContext _context;
@@ -34,6 +36,7 @@ namespace ControleDeGastos.Controllers
 
         //Envia os dados do formulário de cadastro p/ a base de dados.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create([FromForm] TipoConta tipoConta)
         {
             if (ModelState.IsValid)
@@ -67,6 +70,7 @@ namespace ControleDeGastos.Controllers
 
         //Envia os dados do formulário de update p/ a base de dados.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update([FromForm] TipoConta tipoConta)
         {
             if (tipoConta == null)
@@ -103,6 +107,7 @@ namespace ControleDeGastos.Controllers
 
         //Envia os dados do formulário de delete p/ base de dados.
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Delete([FromForm] TipoConta tipoConta)
         {
             if (tipoConta == null)

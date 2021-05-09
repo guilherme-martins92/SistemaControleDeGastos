@@ -13,7 +13,7 @@
             <div class="form-group col-md-8">
                 <label asp-for="Conta.Data" class="control-label"></label>
                 <input asp-for="Conta.Data" class="form-control" />
-                <span asp-validation-for="@Model.Conta.Data" class="text-danger"></span>
+                <span asp-validation-for="Conta.Data" class="text-danger"></span>
             </div>
             <div class="form-group col-md-8">
                 <label for="tipoConta">Tipo de Conta</label>
@@ -26,13 +26,15 @@
             <div class="form-group col-md-12">
                 <label asp-for="Conta.Descricao" class="control-label"></label>
                 <input asp-for="Conta.Descricao" class="form-control" placeholder="Insira uma descrição" />
+                <span asp-validation-for="Conta.Descricao" class="text-danger"></span>
             </div>
             <div class="form-group col-md-12">
                 <label asp-for="Conta.Valor" class="control-label"></label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-12">
                     <span class="input-group-text">R$</span>
                     <input asp-for="Conta.Valor" type="text" class="form-control" />
                 </div>
+                <span asp-validation-for="Conta.Valor" class="text-danger"></span>
             </div>
             <div class="form-group col-md-12">
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
